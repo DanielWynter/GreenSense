@@ -1,0 +1,20 @@
+.splash-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #e6ffe6; /* Fondo verde claro */
+}
+
+.splash-screen img {
+  width: 120px;
+  height: auto;
+}
+
+.splash-screen h1 {
+  color: #2a7c2a;
+  font-size: 2rem;
+  margin-top: 1rem;
+  font-family: "Arial", sans-serif;
+}

@@ -1,0 +1,23 @@
+/*MisPlantas.css*/
+.mis-plantas {
+  text-align: center;
+  padding: 2rem;
+}
+
+.plantas-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.planta {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.mis-plantas {
+  text-align: center;
+}
