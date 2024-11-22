@@ -1,0 +1,26 @@
+{
+  "name": "backend_greensense",
+  "version": "1.0.0",
+  "description": "Backend para monitoreo de plantas con MQTT y Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mqtt",
+    "plants",
+    "backend",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "mariadb": "^3.4.0",
+    "mqtt": "^4.3.8",
+    "mysql": "^2.18.1"
+  }
+}
