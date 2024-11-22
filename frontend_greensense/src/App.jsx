@@ -29,6 +29,7 @@ function App() {
         const data = await response.json();
         setRegisteredUser(data.user);
         setUser(data.user);
+        setSelectedPage("inicio");
       } else {
         const error = await response.json();
         alert(error.message);

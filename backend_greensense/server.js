@@ -37,14 +37,7 @@ mqttClient.on("message", (topic, message) => {
 });
 
 // Rutas de usuario
-app.post("/api/register", (req, res) => {
-  const { nombre, correo, contraseña } = req.body;
-  if (users.some(user => user.correo === correo)) {
-    return res.status(400).json({ message: "El correo ya está registrado" });
-  }
-  const user = { nombre, correo, contraseña };
-  users.push(user);
-  res.status(201).json({ message: "Usuario registrado exitosamente", user });
+app.post("/api/register", (req, res) => { const { nombre, correo, contraseña } = req.body; if (users.some(user => user.correo === correo)) { return res.status(400).json({ message: "El correo ya está registrado" }); } const user = { nombre, correo, contraseña }; users.push(user); res.status(201).json({ message: "Usuario registrado exitosamente", user }); // Incluye el usuario en la respuesta });
 });
 
 app.post("/api/login", (req, res) => {

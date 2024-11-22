@@ -4,12 +4,12 @@ const bodyParser = require("body-parser");
 const mqtt = require("mqtt");
 const mysql = require("mysql");
 
-const app = express();
+const app = express(); // Asegúrate de crear la instancia de Express
 const PORT = 3001;
 
 // Conexión a la base de datos MariaDB
 const db = mysql.createConnection({
-  host: '10.43.111.150', // IP de tu Raspberry Pi 
+  host: '10.43.100.149', // IP de tu Raspberry Pi 
   user: "root", // Usuario de tu base de datos
   password: "", // Contraseña de tu base de datos
   database: "app_plantas", // Nombre de tu base de datos
@@ -66,7 +66,15 @@ app.post("/api/register", (req, res) => {
       console.error("Error al registrar usuario:", err);
       return res.status(500).json({ message: "Error al registrar usuario" });
     }
-    res.status(201).json({ message: "Usuario registrado exitosamente" });
+    // Recuperar el usuario recién registrado
+    const newUserQuery = "SELECT * FROM usuarios WHERE correo = ?";
+    db.query(newUserQuery, [correo], (err, results) => {
+      if (err) {
+        console.error("Error al recuperar usuario registrado:", err);
+        return res.status(500).json({ message: "Error al recuperar usuario registrado" });
+      }
+      res.status(201).json({ message: "Usuario registrado exitosamente", user: results[0] });
+    });
   });
 });
 
