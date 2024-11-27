@@ -67,7 +67,7 @@ function App() {
   // Función para obtener plantas
   const fetchPlants = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/plants");
+      const response = await fetch(`http://localhost:3001/api/plants/${user.id}`);
       if (response.ok) {
         const data = await response.json();
         setPlants(data);
@@ -80,14 +80,15 @@ function App() {
   // Función para agregar plantas
   const addPlant = async (plantData) => {
     try {
+      const plantWithUser = { ...plantData, id_usuario: user.id };
       const response = await fetch("http://localhost:3001/api/plants", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(plantData),
+        body: JSON.stringify(plantWithUser),
       });
       if (response.ok) {
         const data = await response.json();
-        setPlants([...plants, data.newPlant]);
+        setPlants((prevPlants) => [...prevPlants, data.newPlant]);
       }
     } catch (err) {
       console.error("Error al agregar planta:", err);

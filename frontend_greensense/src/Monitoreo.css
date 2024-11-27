@@ -8,9 +8,11 @@
 
 .camera-feed img {
   width: 100%;
-  max-width: 400px;
+  max-width: 800px;
+  height: auto; /* Mantén la relación de aspecto */
   border: 2px solid #4caf50;
   border-radius: 8px;
+  object-fit: cover; /* Asegura que la imagen se recorte adecuadamente */
 }
 
 .sensor-data {
