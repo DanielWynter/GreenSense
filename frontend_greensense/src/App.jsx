@@ -16,6 +16,7 @@ function App() {
   const [isWateringActive, setIsWateringActive] = useState(false);
   const [selectedPage, setSelectedPage] = useState("inicio"); // Página seleccionada
   const [showSplash, setShowSplash] = useState(true); // Control de la Splash Screen
+  const [cameraFeed, setCameraFeed] = useState(null); // Variable para la imagen de la cámara
 
   // Función para registrar un nuevo usuario
   const handleRegister = async (userData) => {
@@ -95,6 +96,21 @@ function App() {
     }
   };
 
+  // Función para obtener la imagen de la cámara
+  const fetchCameraFeed = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/api/camera");
+      if (response.ok) {
+        const data = await response.json();
+        setCameraFeed(data.image);
+      } else {
+        setCameraFeed(null); // Si no hay imagen disponible
+      }
+    } catch (err) {
+      console.error("Error al obtener la imagen de la cámara:", err);
+    }
+  };
+
   useEffect(() => {
     // Mostrar Splash Screen durante 2 segundos
     const splashTimeout = setTimeout(() => {
@@ -103,6 +119,7 @@ function App() {
 
     if (user) {
       fetchPlants();
+      fetchCameraFeed(); // Llamar a la función para obtener la imagen de la cámara
     }
 
     return () => clearTimeout(splashTimeout);
@@ -122,11 +139,17 @@ function App() {
       case "mis-plantas":
         return <MisPlantas plants={plants} addPlant={addPlant} />;
       case "monitoreo":
-        return <Monitoreo />;
+        return (
+          <Monitoreo
+            cameraFeed={cameraFeed} // Pasar la imagen de la cámara a la página de monitoreo
+            wateringStatus={wateringStatus}
+          />
+        );
       default:
         return <Inicio />;
     }
   };
+
 
   if (showSplash) {
     return <SplashScreen />;

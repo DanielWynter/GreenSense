@@ -1,0 +1,43 @@
+/* App.css */
+/* Estilo para centrar el contenido y fondo blanco */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.formulario {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+input,
+button {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+button {
+  background-color: #464746;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button.google {
+  background-color: #1e2023;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}

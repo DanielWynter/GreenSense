@@ -1,0 +1,47 @@
+/*Home.css*/
+.home {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #19321a;
+  color: rgb(238, 236, 236);
+  padding: 1rem;
+}
+
+.sidebar h2 {
+  font-size: 1.3rem;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.sidebar li:hover {
+  color: #ffffff;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logout {
+  margin-top: 2rem;
+  text-align: center;
+}

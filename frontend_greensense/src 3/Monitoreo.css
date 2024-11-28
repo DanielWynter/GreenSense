@@ -1,0 +1,46 @@
+.monitoreo {
+  padding: 20px;
+}
+
+.sensor-data {
+  margin-bottom: 20px;
+  font-size: 18px; /* Tamaño de fuente mayor para mejor visibilidad */
+}
+
+.camera-section {
+  margin: 20px 0;
+  text-align: center; /* Centra el contenido de la sección */
+}
+
+.camera-feed img {
+  width: 100%; /* Ajusta el tamaño de la imagen para que ocupe todo el ancho */
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-width: 600px; /* Limita el tamaño máximo de la imagen */
+  border: 2px solid #ccc; /* Añade un borde para resaltar la imagen */
+  border-radius: 8px; /* Bordes redondeados para un mejor aspecto */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade sombra para dar profundidad */
+}
+
+.irrigation-btn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  border-radius: 8px; /* Bordes redondeados para el botón */
+  transition: background-color 0.3s; /* Animación de transición para el color de fondo */
+}
+
+.irrigation-btn.off {
+  background-color: #f44336;
+}
+
+.irrigation-btn.on {
+  background-color: #4CAF50;
+}
+
+.irrigation-btn:hover {
+  background-color: #45a049; /* Color diferente en hover */
+}
